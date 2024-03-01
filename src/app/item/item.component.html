@@ -1,0 +1,53 @@
+<div class="item-container">
+    <img class="item-image" src="{{item.img}}">
+    <div>
+        <h2 class="item-title">{{item.description}}</h2>
+        <div class="item-rating" [ngSwitch]="item.rating">
+            <div class="item-rating" *ngSwitchCase="5">
+                *****
+            </div>
+            <div class="item-rating" *ngSwitchCase="4">
+                ****
+            </div>
+            <div class="item-rating" *ngSwitchCase="3">
+                ***
+            </div>
+            <div class="item-rating" *ngSwitchCase="2">
+                **
+            </div>
+            <div class="item-rating" *ngSwitchDefault>
+                *
+            </div>
+        </div>
+        <div class="item-price">price: <span>{{item.price | currency:'USD'}}</span></div>
+        <div *ngIf="inCart!==item.qty" class="item-instock">In stock : <span>{{item.qty-inCart}}</span></div>
+        <div *ngIf="inCart===item.qty" class="error">Out of Stock</div>
+        Add to cart
+        <div class="input-group mb-3 add-to-cart-ctrl">
+            <button [disabled]="inCart===0" class="btn btn-outline-secondary" type="button" (click)="updateCart(false)">-</button>
+        <input type="text" class="form-control" [(ngModel)]="inCart" disabled="true">
+        <button [disabled]="inCart===item.qty" class="btn btn-outline-secondary" type="button" (click)="updateCart(true)">+</button>
+        </div>
+    </div>
+
+</div>
+<div class="item-description">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In commodo nulla non odio malesuada, a accumsan magna
+    congue. Nulla ut justo placerat, gravida quam quis, consectetur velit. Nulla est sem, auctor vel vulputate nec,
+    malesuada nec dui. Sed at imperdiet leo, quis suscipit mi. Curabitur maximus ante sit amet mollis molestie. Aenean
+    porttitor arcu blandit felis ultricies, sit amet mattis risus placerat. Aenean elit leo, venenatis id viverra sit
+    amet, pellentesque vitae tortor. Phasellus aliquet ex neque, hendrerit pharetra enim dapibus at. Proin eleifend
+    efficitur lorem id elementum. Nunc finibus est eget tincidunt semper. Vivamus posuere accumsan purus a aliquet. Cras
+    aliquet varius tortor, ac mattis arcu sodales eu. Vestibulum pellentesque est a quam vehicula imperdiet. In hac
+    habitasse platea dictumst. Proin a nisi id justo viverra convallis.
+
+    Ut elementum laoreet egestas. Quisque pharetra bibendum metus, ut pellentesque augue hendrerit vitae. Praesent
+    egestas convallis dolor, a mollis eros pharetra ut. Quisque dignissim quis turpis nec pharetra. Mauris metus dolor,
+    semper vel urna sit amet, efficitur consectetur sem. Aliquam lacinia vehicula imperdiet. Maecenas vehicula dolor a
+    varius fermentum.
+
+    Duis consectetur, augue sit amet semper sagittis, justo orci vestibulum nulla, nec fermentum quam risus id turpis.
+    Praesent congue libero eu magna volutpat, sed ullamcorper diam venenatis. Donec condimentum, nunc iaculis porta
+    faucibus, quam nunc pretium mi, in porta ex velit id sem. In a efficitur enim. Nam in libero nunc. Donec et ornare
+    neque. Aenean metus nulla, bibendum eget leo at, fringilla viverra nunc. Maecenas sit amet laoreet dui.
+</div>

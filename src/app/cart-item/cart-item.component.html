@@ -1,0 +1,35 @@
+<div class="cart-item" (click)="navigateToItem()">
+    <img class="item-img" src="{{item.img}}" alt="monitor">
+    <div class="item-name">{{item.name}}</div>
+    <div class="item-description">{{item.description}}</div>
+    <ng-container [ngSwitch]="item.rating">
+        <div class="item-rating" *ngSwitchCase="5">
+            *****
+        </div>
+        <div class="item-rating" *ngSwitchCase="4">
+           ****
+        </div>
+        <div class="item-rating" *ngSwitchCase="3">
+            ***
+        </div>
+        <div class="item-rating" *ngSwitchCase="2">
+            **
+        </div>
+        <div class="item-rating" *ngSwitchDefault>
+            *
+        </div>
+    </ng-container>
+    
+
+
+    <div class="item-price">{{item.price | currency:"USD"}}</div>
+    <div *ngIf="inCart!==item.qty" class="item-instock">In stock : <span>{{item.qty-inCart}}</span></div>
+    <div *ngIf="inCart===item.qty" class="error">Out of Stock</div>
+    Add to cart :
+    <div class="input-group mb-3 add-to-cart-ctrl" (click)="$event.stopImmediatePropagation()">
+        <button [disabled]="inCart===0" class="btn btn-outline-secondary" type="button" (click)="updateCart(false)">-</button>
+        <input type="text" class="form-control" [(ngModel)]="inCart" disabled="true">
+        <button [disabled]="inCart===item.qty" class="btn btn-outline-secondary" type="button" (click)="updateCart(true)">+</button>
+      </div>
+      
+</div>

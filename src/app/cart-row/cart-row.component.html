@@ -1,0 +1,9 @@
+<img src="{{item.img}}" alt="image" class="item-img">
+
+<div class="item-name">{{item.name}}</div>
+
+<div class="item-qty">{{qty}}</div>
+
+<div class="item-unit-price">{{item.price | currency:'USD'}}</div>
+<div class="item-total-price">{{(item.price*qty)| currency:'USD'}}</div>
+<div class="close" (click)="removeItem()"><img src="../../assets/delete_14025328.png" alt="" width="20px"></div>

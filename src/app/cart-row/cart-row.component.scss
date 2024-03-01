@@ -1,0 +1,41 @@
+:host{
+display: flex;
+gap: 10px;
+align-items: center;
+border-radius: 10px;
+cursor: pointer;
+// border-bottom: 1px solid lightgray;
+
+&:hover{
+    background-color: bisque;
+}
+
+}
+
+.item-img{
+    width: 90px;
+    object-fit: contain;
+    padding: 10px;
+    height: 80px;
+}
+
+.item-name{
+flex-grow: 1;
+padding: 10px;
+}
+
+.item-qty{
+    width: 50px;
+}
+
+.item-unit-price{
+    width: 100px;
+}
+
+.item-total-price{
+    width: 100px;
+}
+.close{
+   width: 50px;
+   font-size: 1rem;
+}
